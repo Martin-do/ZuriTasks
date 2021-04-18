@@ -45,6 +45,7 @@ class Category:
 
 food = Category("Food")
 clothing = Category("Clothing")
+
 food.deposit(100, "Initial Deposit")
 food.withdraw(2, "pepper")
 food.displayCurrentBalance()
