@@ -4,7 +4,7 @@ class Category:
         self.list = []
 
     def deposit(self, amount, description="Nil "):
-        self.list.append({"amount": +amount, "description": description})
+        self.list.append({"amount": amount, "description": description})
         print("Funds have been deposited into your " + self.name +  " Budget")
 
     def withdraw(self, amount, description="Nil "):
@@ -32,11 +32,11 @@ class Category:
 
     def display(self):      #displays activities is formatted style
         print("\n\nTransaction summary \n\n")
-        print(self.name.center(25 + 9, '='))
+        print(self.name.center(35 + 9, '='))
 
         for i in self.list:
             amt = float(i["amount"])
-            print(i["description"].ljust(25, '-') + str(amt).rjust(9))
+            print(i["description"].ljust(35, '-') + str(amt).rjust(9))
         print("Total Balance remaining is %.2f" %self.get_balance())
         print("\t")
     def displayCurrentBalance(self):
@@ -45,15 +45,21 @@ class Category:
 
 food = Category("Food")
 clothing = Category("Clothing")
+entertainment = Category("Entertainment")
 
-food.deposit(100, "Initial Deposit")
-food.withdraw(2, "pepper")
+food.deposit(1000, "Initial Deposit")
+food.withdraw(20, "pepper")
 food.displayCurrentBalance()
 food.transfer(clothing, 50)
 
 clothing.withdraw(25.55)
 clothing.withdraw(100)
 
+entertainment.deposit(5000, "party")
+entertainment.withdraw(1000, "Dj")
+entertainment.transfer(food, 3000)
+
+entertainment.display()
 food.display()
 clothing.display()
 
